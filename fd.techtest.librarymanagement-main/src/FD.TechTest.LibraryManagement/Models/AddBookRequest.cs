@@ -1,4 +1,6 @@
-﻿namespace FD.TechTest.LibraryManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FD.TechTest.LibraryManagement.Models
 {
     /// <summary>
     /// Une requête pour ajouter un livre à la bibliothèque
@@ -8,7 +10,9 @@
     public class AddBookRequest(string title,
         string author)
     {
-        public string Title { get; } = title;
-        public string Author { get; } = author;
+        [MinLength(3)]
+        public string Title { get; set; } = title;
+
+        public string Author { get; set; } = author;
     }
 }
